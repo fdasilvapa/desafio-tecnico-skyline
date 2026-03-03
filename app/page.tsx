@@ -1,57 +1,40 @@
-import { createCard, getCards } from '@/actions/cardActions';
+import { getCards, toggleTaskCompletion, moveToTrash } from '@/actions/cardActions';
+import CreateForm from './components/CreateForm';
+import Card from './components/Card';
 
 export default async function Home() {
-  // 1. READ: Busca os cards do banco toda vez que a página carrega
-  const cards = await getCards();
+  // 1. READ: Busca os cards do banco
+  const allCards = await getCards();
 
-  // 2. CREATE: Action que será disparada pelo formulário
-  async function handleCreate(formData: FormData) {
-    'use server'; // Garante que roda no servidor
-    
-    const title = formData.get('title') as string;
-    
-    // Chama a função que criamos no arquivo actions/card.ts
-    await createCard({ 
-      title, 
-      description: 'Descrição de teste gerada pelo form', 
-      type: 'note' 
-    });
-  }
+  const notes = allCards.filter(card => card.type === 'note');
 
   return (
-    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Teste do Banco de Dados - Skyline</h1>
+    <div className="flex flex-col gap-8 w-full">
+      {/* Formulário Inteligente (já sabe que vai criar uma 'note' pela URL) */}
+      <CreateForm />
       
-      {/* Formulário de Teste */}
-      <form action={handleCreate} style={{ margin: '2rem 0' }}>
-        <input 
-          type="text" 
-          name="title" 
-          placeholder="Digite o título do card..." 
-          required 
-          style={{ padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
-        />
-        <button 
-          type="submit" 
-          style={{ marginLeft: '1rem', padding: '0.5rem 1rem', cursor: 'pointer' }}
-        >
-          Salvar no MongoDB
-        </button>
-      </form>
-
-      <hr />
-
-      {/* Lista de Teste */}
-      <h2>Cards no Banco ({cards.length}):</h2>
-      <ul>
-        {cards.map((card) => (
-          <li key={card.id} style={{ marginBottom: '1rem' }}>
-            <strong>{card.title}</strong> <br/>
-            <small>ID: {card.id}</small> <br/>
-            <small>Criado em: {card.createdAt.toLocaleDateString()}</small>
-          </li>
-        ))}
-      </ul>
-    </main>
+      {/* Container das Notas */}
+      <section>
+        {notes.length === 0 ? (
+          <div className="text-center text-muted-foreground mt-12 flex flex-col items-center gap-2">
+            <span className="text-4xl">📝</span>
+            <p>Nenhuma nota criada ainda. Que tal criar uma?</p>
+          </div>
+        ) : (
+          // Grid responsivo: 1 coluna no celular, 2 no tablet, 3-4 no desktop
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {notes.map((note) => (
+              <Card
+                key={note.id}
+                {...note}
+                // Passando as Server Actions como props para o Client Component
+                onToggleCompletion={toggleTaskCompletion}
+                onMoveToTrash={moveToTrash}
+              />
+            ))}
+          </div>
+        )}
+      </section>
+    </div>
   );
 }
