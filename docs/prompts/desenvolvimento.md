@@ -64,7 +64,10 @@ seria interessante definir o tipo automaticamente de acordo com a página em que
 
 **Resposta do agente com a criação do componente card**
 
-## Prompt 8: Componente de formulário
->prompt simples de continuidade
+## Prompts 8, 9, 10: 
+
+### Criação do componente de formulário, atualização da página de notas e página de tarefas com renderização de cards.
+
+>prompts simples de continuidade do desenvolvimento
 
 

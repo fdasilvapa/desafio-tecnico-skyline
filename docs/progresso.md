@@ -12,9 +12,9 @@
 
 ## Topbar implementada com botão de controle da sidebar e uma barra de pesquisa (que já é um diferencial ). ✅
 
-## Componente de Exibição (Card): Criar a interface visual para exibir as notas e tarefas (com distinção visual entre elas, checkbox para tarefas, etc.) replicando a usabilidade do Google Keep/Tasks. ❌
+## Componente de Exibição (Card): Criar a interface visual para exibir as notas e tarefas (com distinção visual entre elas, checkbox para tarefas, etc.) replicando a usabilidade do Google Keep/Tasks. ✅
 
-## Componente de Criação (InputArea): O formulário onde o usuário digita o título/descrição (tipo nota ou tarefa será verificado com base na página atual). ❌
+## Componente de Criação (InputArea): O formulário onde o usuário digita o título/descrição (tipo nota ou tarefa será verificado com base na página atual). ✅
 
 ## Páginas Principais: Conectar esses componentes nas rotas / (Notas), /tarefas e /lixeira, puxando os dados reais do banco. ❌
 
