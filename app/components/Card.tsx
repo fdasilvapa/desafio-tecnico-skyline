@@ -12,10 +12,10 @@ export interface CardProps {
   is_active: boolean;
   is_completed: boolean;
   createdAt: Date;
-  onToggleCompletion?: (id: string, currentStatus: boolean) => Promise<void>;
-  onMoveToTrash?: (id: string) => Promise<void>;
-  onRestore?: (id: string) => Promise<void>;
-  onHardDelete?: (id: string) => Promise<void>;
+  onToggleCompletion?: (id: string, currentStatus: boolean) => Promise<any>;
+  onMoveToTrash?: (id: string) => Promise<any>;
+  onRestore?: (id: string) => Promise<any>;
+  onHardDelete?: (id: string) => Promise<any>;
 }
 
 export default function Card({
