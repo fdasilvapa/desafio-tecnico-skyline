@@ -57,3 +57,11 @@ quando fui realizar um teste, ao trocar para o modo escuro e tentar trocar entre
 vamos cuidar do componente de topbar primeiro, para completar essa parte da estrutura inicial planejada no rascunho
 
 > Com o componente criado, refatorei a sidebar para remover o botão de menu, que agora está presente na topbar, decidi isso no rascunho pois achei que a usabilidade ficaria melhor,já que o usuário pode escolher se mantém os nomes ou somente os ícones das abas
+
+## Prompt 7: Criação do componente de card
+certo, minha ideia é que criemos um componente que possua duas variantes: note e task, visto que a renderização de cada um terá detalhes visuais diferentes.
+seria interessante definir o tipo automaticamente de acordo com a página em que o usuário está, pois assim ele pode criar notas ou tarefas somente em suas abas específicas, outro detalhe importante é que podemos usar otimização de atualização da UI para as ações do usuário, ou seja, toda ação que precisa ser refletida no banco, é realizada automaticamente no front, enquanto a requisição ainda está sendo enviada no background para atualizá-lo, vamos prosseguir então?
+
+**Resposta do agente com a criação do componente card**
+
+
