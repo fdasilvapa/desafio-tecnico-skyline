@@ -16,7 +16,7 @@
 
 ## Componente de Criação (InputArea): O formulário onde o usuário digita o título/descrição (tipo nota ou tarefa será verificado com base na página atual). ✅
 
-## Páginas Principais: Conectar esses componentes nas rotas / (Notas), /tarefas e /lixeira, puxando os dados reais do banco. ❌
+## Páginas Principais: Conectar esses componentes nas rotas / (Notas), /tarefas e /lixeira, puxando os dados reais do banco. ✅
 
 ## Respostas Técnicas: Responder às 5 perguntas do respostas-tecnicas.md. ✅
 
