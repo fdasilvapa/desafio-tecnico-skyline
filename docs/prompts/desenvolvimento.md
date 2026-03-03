@@ -70,4 +70,8 @@ seria interessante definir o tipo automaticamente de acordo com a página em que
 
 >prompts simples de continuidade do desenvolvimento
 
+## Prompt 11: Criação da página de lixeira
+>prompt simples de continuidade do desenvolvimento
 
+### Testei a implementação e pedi para adicionar um detalhe de usabilidade
+vamos adicionar um botão esvaziar lixeira
