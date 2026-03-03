@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Card {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  description  String?  
+  type         String   @default("note")
+  is_active    Boolean  @default(true)
+  is_completed Boolean  @default(false)
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
