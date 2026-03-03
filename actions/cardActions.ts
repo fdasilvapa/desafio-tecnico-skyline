@@ -58,3 +58,52 @@ export async function moveToTrash(id: string) {
   revalidatePath('/');
   return trashedCard;
 }
+
+// 5. READ TRASH (Buscar todos os cards na lixeira)
+export async function getTrashedCards() {
+  const cards = await prisma.card.findMany({
+    where: {
+      is_active: false, // Traz apenas os itens deletados
+    },
+    orderBy: {
+      updatedAt: 'desc', // Ordena pelos que foram deletados mais recentemente
+    },
+  });
+
+  return cards;
+}
+
+// 6. RESTORE (Tirar da lixeira e voltar para ativo)
+export async function restoreFromTrash(id: string) {
+  const restoredCard = await prisma.card.update({
+    where: { id },
+    data: { is_active: true },
+  });
+
+  // Revalida todas as rotas para garantir que a interface atualize instantaneamente
+  revalidatePath('/lixeira');
+  revalidatePath('/');
+  revalidatePath('/tarefas');
+  
+  return restoredCard;
+}
+
+// 7. HARD DELETE (Excluir permanentemente do banco)
+export async function deletePermanently(id: string) {
+  const deletedCard = await prisma.card.delete({
+    where: { id },
+  });
+
+  revalidatePath('/lixeira');
+  return deletedCard;
+}
+
+// 8. EMPTY TRASH (Excluir todos os itens da lixeira permanentemente)
+export async function emptyTrash() {
+  const result = await prisma.card.deleteMany({
+    where: { is_active: false },
+  });
+
+  revalidatePath('/lixeira');
+  return result;
+}

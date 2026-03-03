@@ -52,3 +52,26 @@ Segui com a sugestão do agente e instalei a biblioteca next-themes
 quando fui realizar um teste, ao trocar para o modo escuro e tentar trocar entre as abas /lixeira e /tarefas, há uma piscada branca na tela, isso pode ser devido a ainda não existirem (404), ou realmente é um bug visual?
 
 > Após isso o agente criou as páginas temporárias /tarefas e /lixeira, validando que o problema realmente era a não existência das páginas.
+
+## Prompt 6: Criação do componente de topbar
+vamos cuidar do componente de topbar primeiro, para completar essa parte da estrutura inicial planejada no rascunho
+
+> Com o componente criado, refatorei a sidebar para remover o botão de menu, que agora está presente na topbar, decidi isso no rascunho pois achei que a usabilidade ficaria melhor,já que o usuário pode escolher se mantém os nomes ou somente os ícones das abas
+
+## Prompt 7: Criação do componente de card
+certo, minha ideia é que criemos um componente que possua duas variantes: note e task, visto que a renderização de cada um terá detalhes visuais diferentes.
+seria interessante definir o tipo automaticamente de acordo com a página em que o usuário está, pois assim ele pode criar notas ou tarefas somente em suas abas específicas, outro detalhe importante é que podemos usar otimização de atualização da UI para as ações do usuário, ou seja, toda ação que precisa ser refletida no banco, é realizada automaticamente no front, enquanto a requisição ainda está sendo enviada no background para atualizá-lo, vamos prosseguir então?
+
+**Resposta do agente com a criação do componente card**
+
+## Prompts 8, 9, 10: 
+
+### Criação do componente de formulário, atualização da página de notas e página de tarefas com renderização de cards.
+
+>prompts simples de continuidade do desenvolvimento
+
+## Prompt 11: Criação da página de lixeira
+>prompt simples de continuidade do desenvolvimento
+
+### Testei a implementação e pedi para adicionar um detalhe de usabilidade
+vamos adicionar um botão esvaziar lixeira
