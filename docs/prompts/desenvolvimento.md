@@ -1,0 +1,54 @@
+# Prompts de desenvolvimento
+
+## Prompt 1: Criação do crud
+> Resposta anterior do agente: Com esse mistério resolvido e a estrutura limpa, o terreno está perfeitamente preparado. Quer que eu escreva a estrutura das Server Actions (o nosso arquivo actions.ts) para finalmente criarmos e listarmos as notas/tarefas no banco?
+
+
+Certo, vamos desenvolver o crud principal
+---
+Com isso criei o arquivo /actions/cardActions.ts, e parti para testar se os dados estavam sendo gravados corretamente. Para isso modificamos o arquivo app/page.tsx para funcionar como um formulário (ainda sem estilização) que dispara as ações de criação e listagem.
+> **Nota:** Optei por criar o CRUD antes mesmo de fazer um levantamento dos requisitos, pois precisava validar se a conexão com o banco estava funcionando corretamente.
+
+## Prompt 2: Criação do componente da sidebar
+> Após definir os requisitos (consultar config-db.md), dei o comando para iniciar o desenvolvimento do componente de sidebar
+
+## Prompt 3: Ajuste do arquivo de layout
+vamos lá, o código atual do layout é esse:
+```
+# Exemplo
+# Não vou colocar o código inteiro para não poluir o documento
+```
+precisamos adicionar o título também, por enquanto o nome será TasksApp, e a fonte será open-sans
+
+### Incluso na resposta do agente
+Se transformarmos o RootLayout inteiro em Client Component, perderemos benefícios de SEO e performance inicial. A solução ideal é manter o layout.tsx como Server Component (para gerenciar as fontes e os metadados) e criar um componente wrapper (como um ClientLayout) para envelopar a aplicação com a Sidebar e a Topbar.
+
+### Tomada de decisão
+Segui com a sugestão do agente e criei o componente ClientLayout
+
+## Prompt 4: Ajuste do CSS global
+vamos aplicar os temas diretamente no global.css, para termos maior controle nos componentes:
+```
+# Exemplo
+# Não vou colocar o código inteiro para não poluir o documento
+```
+já me indique também as alterações nos arquivos criados, chamando as variáveis do global para evitar uso de cores hardcoded
+
+
+## Prompt 5: Correção de modo claro/escuro
+Vou deixar os ajustes finos de usabilidade e aparência para depois, porém precisamos resolver um pequeno problema, como a lixeira e tarefas foram criadas como páginas a parte (/tarefas e /lixeira), no fluxo:
+selecionar tema -> clicar em tarefas/lixeira
+o tema é sobrescrito pelo padrão (claro), como podemos resolver da melhor forma?
+
+### Sugestão do agente
+Esse é um comportamento clássico no Next.js! O que está acontecendo é que o estado isDarkMode que criamos vive apenas dentro do componente Sidebar. Quando você navega entre as rotas (/tarefas, /lixeira), o Next.js pode desmontar e remontar partes da árvore de componentes, resetando o estado local para false (claro) e perdendo a classe .dark do HTML.
+
+A melhor forma, e também o padrão da indústria para resolver isso no Next.js (App Router), é usar a biblioteca next-themes. Ela gerencia a persistência no localStorage, sincroniza entre abas e evita aquele "piscar" de tela branca antes do CSS carregar (FOUC).
+
+### Tomada de decisão
+Segui com a sugestão do agente e instalei a biblioteca next-themes
+
+## Prompt 5.1: Correção do modo claro/escuro - Agente integrado
+quando fui realizar um teste, ao trocar para o modo escuro e tentar trocar entre as abas /lixeira e /tarefas, há uma piscada branca na tela, isso pode ser devido a ainda não existirem (404), ou realmente é um bug visual?
+
+> Após isso o agente criou as páginas temporárias /tarefas e /lixeira, validando que o problema realmente era a não existência das páginas.

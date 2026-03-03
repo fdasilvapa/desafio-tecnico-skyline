@@ -56,3 +56,53 @@ model Card {
   updatedAt    DateTime @updatedAt
 }
 ```
+## Prompt 3: Requisitos
+
+Preciso levantar os requisitos do sistema para começar a desenvolver a interface, separei algumas referências num projeto do figma (como google keep e google tasks) para ter uma base e rascunhar a tela principal.
+Sobre essa estrutura de interface:
+Sidebar do lado esquerdo (pode ser minimizada ou expandida, já pensando na responsividade) com opções principais como:
+-Tarefas
+-Notas
+-Tema (claro/escuro)
+-Lixeira
+Área de trabalho principal ao lado direito:
+-ocupa 70-80% da tela
+-é onde ficam os cards criados pelo usuário
+Topbar:
+-Botão de controle da sidebar
+-Logo
+Após implemetar vou realizar alguns testes, então o rascunho base pode passar por mudanças.
+Para os requisitos, quero que contenha as funções mínimas de:
+-Criar card (nota/tarefa) - cada um deles tem uma tela no workspace, definida clicando na sidebar, visto que serão renderizados via componentes que terão estilos ligeiramente diferentes
+-Editar card
+-Apagar card (Somente após criação - soft delete com o is_active no banco, caso is_active = false, o item deve ser renderizado na lixeira)
+-Concluir tarefa
+-Botão de troca de tema (claro/escuro)
+
+Acha que mais alguma coisa deve ser adicionada? Vamos prosseguir para a criação desses requisitos
+
+### Definição final de requisitos:
+
+Funcionais:
+
+-Sidebar: Navegação entre "Notas", "Tarefas" e "Lixeira", controle de Tema (Dark/Light).
+
+-Notas: Criar, visualizar, editar e enviar para a lixeira.
+
+-Tarefas: Criar, visualizar, editar, marcar como concluída/pendente e enviar para a lixeira.
+
+-Lixeira: Visualizar itens deletados, restaurar itens, esvaziar lixeira (Hard Delete).
+
+Não Funcionais / Técnicos:
+
+-Construído com React, Next.js (App Router), Node (Server Actions) e Prisma ORM (MongoDB).
+
+-Estilização com Tailwind CSS.
+
+-Animações de interações e layout com Framer Motion.
+
+-Responsividade: Layout adaptável para telas menores (Sidebar vira menu hambúrguer).
+
+Diferenciais (se o tempo permitir):
+
+Sistema de fixar
