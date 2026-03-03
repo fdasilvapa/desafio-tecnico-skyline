@@ -9,3 +9,5 @@ Certo, vamos desenvolver o crud principal
 Com isso criei o arquivo /actions/cardActions.ts, e parti para testar se os dados estavam sendo gravados corretamente. Para isso modificamos o arquivo app/page.tsx para funcionar como um formulário (ainda sem estilização) que dispara as ações de criação e listagem.
 > **Nota:** Optei por criar o CRUD antes mesmo de fazer um levantamento dos requisitos, pois precisava validar se a conexão com o banco estava funcionando corretamente.
 
+## Prompt 2: Criação dos primeiros componentes
+> Após definir os requisitos (consultar config-db.md), dei o comando para iniciar o desenvolvimento do componente de sidebar
