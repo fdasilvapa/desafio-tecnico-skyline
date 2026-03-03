@@ -48,15 +48,6 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
       className="h-screen bg-surface border-r border-border flex flex-col justify-between overflow-hidden shrink-0"
     >
       <div>
-        <div className="h-16 flex items-center px-4">
-          <button 
-            onClick={toggleSidebar}
-            className="p-2 rounded-full hover:bg-hover transition-colors text-muted-foreground"
-          >
-            <Menu size={24} />
-          </button>
-        </div>
-
         <nav className="mt-4 flex flex-col gap-2 px-2">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
