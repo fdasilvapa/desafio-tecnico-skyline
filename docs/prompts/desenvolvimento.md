@@ -52,3 +52,8 @@ Segui com a sugestão do agente e instalei a biblioteca next-themes
 quando fui realizar um teste, ao trocar para o modo escuro e tentar trocar entre as abas /lixeira e /tarefas, há uma piscada branca na tela, isso pode ser devido a ainda não existirem (404), ou realmente é um bug visual?
 
 > Após isso o agente criou as páginas temporárias /tarefas e /lixeira, validando que o problema realmente era a não existência das páginas.
+
+## Prompt 6: Criação do componente de topbar
+vamos cuidar do componente de topbar primeiro, para completar essa parte da estrutura inicial planejada no rascunho
+
+> Com o componente criado, refatorei a sidebar para remover o botão de menu, que agora está presente na topbar, decidi isso no rascunho pois achei que a usabilidade ficaria melhor,já que o usuário pode escolher se mantém os nomes ou somente os ícones das abas

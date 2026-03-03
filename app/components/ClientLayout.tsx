@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Sidebar from './Sidebar';
+import Topbar from './Topbar';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -13,9 +14,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       
       <div className="flex flex-col flex-1 w-full overflow-hidden">
-        <header className="h-16 flex items-center justify-between px-6 border-b border-border bg-surface/80 backdrop-blur-sm shrink-0">
-          <h1 className="text-xl font-bold tracking-tight">TasksApp</h1>
-        </header>
+        <Topbar toggleSidebar={toggleSidebar} />
 
         <main className="flex-1 overflow-y-auto p-6">
           {children}
