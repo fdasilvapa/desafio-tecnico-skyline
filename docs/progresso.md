@@ -20,4 +20,4 @@
 
 ## Respostas Técnicas: Responder às 5 perguntas do respostas-tecnicas.md. ✅
 
-## Ajustes Finais e Deploy: Testes de usabilidade e (opcionalmente) o deploy na Vercel. ❌
+## Ajustes Finais e Deploy: Testes de usabilidade e (opcionalmente) o deploy na Vercel. ✅
