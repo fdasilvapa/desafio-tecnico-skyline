@@ -75,3 +75,28 @@ seria interessante definir o tipo automaticamente de acordo com a página em que
 
 ### Testei a implementação e pedi para adicionar um detalhe de usabilidade
 vamos adicionar um botão esvaziar lixeira
+
+## Prompt 12: Criação da funcionalidade de edição de cards
+vamos adicionar a opção de editar um card, e vou escolher como diferencial a opção de fixar um card no topo.
+depois iremos para os ajustes de usabilidade antes de fazer o deploy
+
+## Prompt 13 em diante: Ajustes de usabilidade
+
+- Pensando na responsividade, preciso que a sidebar possua um comportamento específico, principalmente para telas pequenas.
+Quando ela estiver expandida, ela deve apenas sobrepor a workspace, sem dividir espaço de tela, caso contrário a workspace fica espremida do lado direito da tela
+
+- Ajuste a renderização do conteúdo da lixeira em telas mobile, para evitar que o título, descrição e o botão de esvaziar lixeira fiquem espremidos
+
+- Ajuste os cards para que os botões de ação (fixar, editar, mover para a lixeira) e o tipo do card estejam sempre visíveis, não apenas quando ocorre o hover
+
+- Me indique como posso realizar essa lógica de desfazer a ação ao mover para a lixeira, é viável fazê-la via toast ou devo criar outra função?
+> Código do card anexado ao prompt
+
+- para adicionar um toast de card restaurado e um aviso de confirmação de deleção (atualmente o único aviso ação destrutiva está no botão de esvaziar lixeira), eu devo mudar diretamente nesse trecho:
+```
+# Trecho de código anexado ao prompt
+```
+ou criar uma função auxiliar?
+
+**Tomada de decisão**
+Decidi criar uma função auxiliar para evitar repetição de código

@@ -14,6 +14,7 @@ model Card {
   type         String   @default("note")
   is_active    Boolean  @default(true)
   is_completed Boolean  @default(false)
+  is_pinned    Boolean  @default(false)
   
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt

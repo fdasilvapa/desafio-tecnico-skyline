@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createCard } from '@/actions/cardActions';
 import { Loader2, Plus } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function CreateForm() {
   const pathname = usePathname();
@@ -57,7 +58,7 @@ export default function CreateForm() {
         setDescription('');
         setIsExpanded(false);
       } catch (error) {
-        console.error("Erro ao criar card:", error);
+        toast.error("Erro ao criar card");
       }
     });
   };
