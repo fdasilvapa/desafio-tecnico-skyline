@@ -1,6 +1,7 @@
 import { getCards, toggleTaskCompletion, moveToTrash, restoreFromTrash, updateCard, togglePin } from '@/actions/cardActions';
 import CreateForm from './components/CreateForm';
 import Card from './components/Card';
+import { Card as PrismaCard } from '@prisma/client';
 
 export default async function Home() {
   // 1. READ: Busca os cards do banco
@@ -23,7 +24,7 @@ export default async function Home() {
         ) : (
           // Grid responsivo: 1 coluna no celular, 2 no tablet, 3-4 no desktop
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {notes.map((note) => (
+            {notes.map((note: PrismaCard) => (
               <Card
                 key={note.id}
                 {...note}

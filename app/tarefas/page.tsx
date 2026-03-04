@@ -1,6 +1,7 @@
 import { getCards, toggleTaskCompletion, moveToTrash, restoreFromTrash, updateCard, togglePin } from '@/actions/cardActions';
 import CreateForm from '../components/CreateForm';
 import Card from '../components/Card';
+import { Card as PrismaCard } from '@prisma/client';
 
 export default async function TarefasPage() {
   // 1. Busca os cards ativos no banco
@@ -29,7 +30,7 @@ export default async function TarefasPage() {
             {/* Grid de Tarefas Pendentes */}
             {pendingTasks.length > 0 && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {pendingTasks.map((task) => (
+                {pendingTasks.map((task: PrismaCard) => (
                   <Card
                     key={task.id}
                     {...task}
@@ -50,7 +51,7 @@ export default async function TarefasPage() {
                   Concluídas ({completedTasks.length})
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 opacity-70">
-                  {completedTasks.map((task) => (
+                  {completedTasks.map((task: PrismaCard) => (
                     <Card
                       key={task.id}
                       {...task}
