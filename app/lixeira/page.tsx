@@ -2,7 +2,6 @@ import { getTrashedCards, restoreFromTrash, deletePermanently } from '@/actions/
 import Card from '../components/Card';
 import { Trash2 } from 'lucide-react';
 import EmptyTrashButton from '../components/EmptyTrashButton';
-import { Card as PrismaCard } from '@prisma/client';
 
 export default async function LixeiraPage() {
   // 1. Busca apenas os cards que estão com is_active: false
@@ -34,7 +33,7 @@ export default async function LixeiraPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 opacity-80 grayscale-20 hover:grayscale-0 transition-all duration-500">
-            {trashedCards.map((card: PrismaCard) => (
+            {trashedCards.map((card) => (
               <Card
                 key={card.id}
                 {...card}
