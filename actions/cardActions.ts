@@ -4,6 +4,8 @@ import { prisma } from '../utils/prisma';
 import { revalidatePath } from 'next/cache';
 import { Card } from '@prisma/client';
 
+const revalidateAll = () => revalidatePath('/', 'layout');
+
 // 1. CREATE (Criar nova nota ou tarefa)
 export async function createCard(data: { title: string; description?: string; type: string }) {
   if (!data.title) {
@@ -18,8 +20,7 @@ export async function createCard(data: { title: string; description?: string; ty
     },
   });
 
-  // Força o Next.js a limpar o cache e atualizar a interface na página inicial
-  revalidatePath('/'); 
+  revalidateAll(); 
   
   return newCard;
 }
@@ -46,7 +47,7 @@ export async function toggleTaskCompletion(id: string, currentStatus: boolean) {
     data: { is_completed: !currentStatus },
   });
 
-  revalidatePath('/');
+  revalidateAll();
   return updatedCard;
 }
 
@@ -57,7 +58,7 @@ export async function moveToTrash(id: string) {
     data: { is_active: false },
   });
 
-  revalidatePath('/');
+  revalidateAll();
   return trashedCard;
 }
 
@@ -82,10 +83,7 @@ export async function restoreFromTrash(id: string) {
     data: { is_active: true },
   });
 
-  // Revalida todas as rotas para garantir que a interface atualize instantaneamente
-  revalidatePath('/lixeira');
-  revalidatePath('/');
-  revalidatePath('/tarefas');
+  revalidateAll();
   
   return restoredCard;
 }
@@ -96,7 +94,7 @@ export async function deletePermanently(id: string) {
     where: { id },
   });
 
-  revalidatePath('/lixeira');
+  revalidateAll();
   return deletedCard;
 }
 
@@ -106,7 +104,7 @@ export async function emptyTrash() {
     where: { is_active: false },
   });
 
-  revalidatePath('/lixeira');
+  revalidateAll();
   return result;
 }
 
@@ -119,8 +117,7 @@ export async function updateCard(id: string, data: { title: string; description?
     },
   });
 
-  revalidatePath('/');
-  revalidatePath('/tarefas');
+  revalidateAll();
   return updatedCard;
 }
 
@@ -130,7 +127,6 @@ export async function togglePin(id: string, currentStatus: boolean) {
     data: { is_pinned: !currentStatus },
   });
 
-  revalidatePath('/');
-  revalidatePath('/tarefas');
+  revalidateAll();
   return updatedCard;
 }
