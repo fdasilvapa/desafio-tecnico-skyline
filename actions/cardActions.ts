@@ -2,6 +2,7 @@
 
 import { prisma } from '../utils/prisma';
 import { revalidatePath } from 'next/cache';
+import { Card } from '@prisma/client';
 
 // 1. CREATE (Criar nova nota ou tarefa)
 export async function createCard(data: { title: string; description?: string; type: string }) {
@@ -24,7 +25,7 @@ export async function createCard(data: { title: string; description?: string; ty
 }
 
 // 2. READ (Buscar todos os cards ativos)
-export async function getCards() {
+export async function getCards(): Promise<Card[]> {
   const cards = await prisma.card.findMany({
     where: {
       is_active: true, // Traz apenas os itens que não estão na lixeira
@@ -61,7 +62,7 @@ export async function moveToTrash(id: string) {
 }
 
 // 5. READ TRASH (Buscar todos os cards na lixeira)
-export async function getTrashedCards() {
+export async function getTrashedCards(): Promise<Card[]> {
   const cards = await prisma.card.findMany({
     where: {
       is_active: false, // Traz apenas os itens deletados
