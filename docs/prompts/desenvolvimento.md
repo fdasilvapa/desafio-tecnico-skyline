@@ -100,3 +100,11 @@ ou criar uma função auxiliar?
 
 **Tomada de decisão**
 Decidi criar uma função auxiliar para evitar repetição de código
+
+## Prompt após deploy
+> Realizei testes após o deploy e percebi que estavam ocorrendo alguns bugs de renderização dos cards em suas respectivas páginas depois de determinadas ações, como mover para a lixeira e restaurar, fixar e desfixar, etc. Iniciei uma nova conversa na LLM, rodei um script de transcrição que possuo (ele lê os arquivos em um zip e os trasncreve para md, aplicando alguns filtros para ignorar arquivos desnecessários e otimizar a quantidade de tokens, já que uso esse script para atualização de memória das LLMs) e usei o seguinte prompt:
+
+**Anexo em md junto ao prompt**
+Preciso que analise esse projeto, fiz o deploy dele no vercel e está ocorrendo um bug na lixeira.
+Verifiquei e os cards estão sendo atualizados corretamente no banco, inclusive o estado de is_active, porém nada está sendo renderizado na página de lixeira, o que ocorreu?
+Além disso, também estão ocorrendo outros problemas, quando o usuário faz ações muito rápido, tudo é atualizado no banco porém a renderização na tela de notas e tarefas também fica errada, talvez devamos tratar as funções de atualização das páginas de outra forma?
