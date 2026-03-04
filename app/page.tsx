@@ -1,4 +1,4 @@
-import { getCards, toggleTaskCompletion, moveToTrash, updateCard, togglePin } from '@/actions/cardActions';
+import { getCards, toggleTaskCompletion, moveToTrash, restoreFromTrash, updateCard, togglePin } from '@/actions/cardActions';
 import CreateForm from './components/CreateForm';
 import Card from './components/Card';
 
@@ -30,6 +30,7 @@ export default async function Home() {
                 // Passando as Server Actions como props para o Client Component
                 onToggleCompletion={toggleTaskCompletion}
                 onMoveToTrash={moveToTrash}
+                onRestore={restoreFromTrash}
                 onUpdate={updateCard}
                 onTogglePin={togglePin}
               />

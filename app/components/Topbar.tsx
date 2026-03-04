@@ -22,21 +22,13 @@ export default function Topbar({ toggleSidebar }: TopbarProps) {
         
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center shadow-sm">
-            <span className="text-primary-foreground font-bold text-lg leading-none">S</span>
+            <span className="text-primary-foreground font-bold text-lg leading-none">T</span>
           </div>
           <h1 className="text-xl font-bold tracking-tight text-foreground hidden sm:block">
             TasksApp
           </h1>
         </div>
       </div>
-
-      {/* Direita: Avatar do Usuário */}
-      <div className="flex items-center gap-3 shrink-0">
-        <div className="w-8 h-8 rounded-full bg-linear-to-tr from-primary to-blue-400 flex items-center justify-center text-primary-foreground font-bold shadow-sm cursor-pointer hover:opacity-90 transition-opacity">
-          U
-        </div>
-      </div>
-
     </header>
   );
 }

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   /* Cores Base - Modo Claro */
   --background: #ffffff;
@@ -16,7 +18,7 @@
   /* Cor Principal (Ativos, Botões) */
   --primary: #3b82f6; 
   --primary-foreground: #ffffff;
-  --primary-muted: #eff6ff;
+  --primary-muted: #afd2ff;
 }
 
 .dark {
@@ -35,7 +37,7 @@
   /* Cor Principal */
   --primary: #3b82f6;
   --primary-foreground: #ffffff;
-  --primary-muted: #1e3a8a;
+  --primary-muted: #263e80;
 }
 
 @theme inline {
