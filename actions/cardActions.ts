@@ -29,9 +29,10 @@ export async function getCards() {
     where: {
       is_active: true, // Traz apenas os itens que não estão na lixeira
     },
-    orderBy: {
-      createdAt: 'desc', // Ordena dos mais recentes para os mais antigos
-    },
+    orderBy: [
+      {is_pinned: 'desc'},
+      {createdAt: 'desc'}, // Ordena dos mais recentes para os mais antigos
+    ],
   });
 
   return cards;
@@ -106,4 +107,29 @@ export async function emptyTrash() {
 
   revalidatePath('/lixeira');
   return result;
+}
+
+export async function updateCard(id: string, data: { title: string; description?: string }) {
+  const updatedCard = await prisma.card.update({
+    where: { id },
+    data: {
+      title: data.title,
+      description: data.description,
+    },
+  });
+
+  revalidatePath('/');
+  revalidatePath('/tarefas');
+  return updatedCard;
+}
+
+export async function togglePin(id: string, currentStatus: boolean) {
+  const updatedCard = await prisma.card.update({
+    where: { id },
+    data: { is_pinned: !currentStatus },
+  });
+
+  revalidatePath('/');
+  revalidatePath('/tarefas');
+  return updatedCard;
 }

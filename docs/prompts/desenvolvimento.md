@@ -75,3 +75,9 @@ seria interessante definir o tipo automaticamente de acordo com a página em que
 
 ### Testei a implementação e pedi para adicionar um detalhe de usabilidade
 vamos adicionar um botão esvaziar lixeira
+
+## Prompt 12: Criação da funcionalidade de edição de cards
+vamos adicionar a opção de editar um card, e vou escolher como diferencial a opção de fixar um card no topo.
+depois iremos para os ajustes de usabilidade antes de fazer o deploy
+
+
