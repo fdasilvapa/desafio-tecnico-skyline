@@ -2,9 +2,7 @@
 
 import { prisma } from '../utils/prisma';
 import { revalidatePath } from 'next/cache';
-import { Prisma } from '@prisma/client';
-
-type Card = Prisma.CardGetPayload<{}>;
+import { Card } from '@prisma/client';
 
 // 1. CREATE (Criar nova nota ou tarefa)
 export async function createCard(data: { title: string; description?: string; type: string }) {
