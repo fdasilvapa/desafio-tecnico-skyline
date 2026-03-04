@@ -1,4 +1,4 @@
-import { getCards, toggleTaskCompletion, moveToTrash } from '@/actions/cardActions';
+import { getCards, toggleTaskCompletion, moveToTrash, updateCard, togglePin } from '@/actions/cardActions';
 import CreateForm from '../components/CreateForm';
 import Card from '../components/Card';
 
@@ -35,6 +35,8 @@ export default async function TarefasPage() {
                     {...task}
                     onToggleCompletion={toggleTaskCompletion}
                     onMoveToTrash={moveToTrash}
+                    onUpdate={updateCard}
+                    onTogglePin={togglePin}
                   />
                 ))}
               </div>
@@ -53,6 +55,8 @@ export default async function TarefasPage() {
                       {...task}
                       onToggleCompletion={toggleTaskCompletion}
                       onMoveToTrash={moveToTrash}
+                      onUpdate={updateCard}
+                      onTogglePin={togglePin}
                     />
                   ))}
                 </div>
